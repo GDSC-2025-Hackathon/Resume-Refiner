@@ -27,19 +27,8 @@
     </head>
     
 <body>
-        
-    <h1>Flask File Uploads Tutorial</h1>
 
-    <!-- Upload Form -->
-    <form id="upload-form" enctype="multipart/form-data">
-        {{ form.hidden_tag() }}
-        {{ form.file() }}
-        <button type="submit">Upload File</button>
-    </form>
-    
-<input type="hidden" id="csrf_token" value="{{ csrf_token() }}">
-    <!-- Additional Inputs -->
-    <div id="extra-fields" style="display:none;">
+    <div id="extra-fields" >
         <input type="text" id="job" placeholder="Enter job position"><br>
     
         <!-- Country dropdown -->
@@ -71,27 +60,6 @@
 
     <!-- JavaScript -->
     <script>
-        document.getElementById("upload-form").addEventListener("submit", function(e) {
-            e.preventDefault(); // Prevent full page refresh
-
-            const formData = new FormData(this);
-
-            fetch("/upload", {
-                method: "POST",
-                body: formData
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    document.getElementById("extra-fields").style.display = "block";
-                } else {
-                    alert("File upload failed.");
-                }
-            })
-            .catch(err => {
-                console.error("Upload error:", err);
-            });
-        });
 
         // Show city input once country is selected
         document.getElementById("country").addEventListener("change", function() {
@@ -111,7 +79,7 @@
             fetch("/result", {
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({ job, country, city, refine: true }) // refine = true
+                body: JSON.stringify({ job, country, city, refine: false }) // refine = true
             })
             .then(res => res.json())
             .then(data => {
