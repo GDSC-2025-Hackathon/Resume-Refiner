@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Job Search</title>
+        <style>
+            .job-entry {
+                border: 1px solid #ccc;
+                padding: 10px;
+                margin: 12px 0;
+                border-radius: 6px;
+            }
+    
+            .job-details {
+                margin-top: 8px;
+                font-size: 0.95em;
+                background-color: #f9f9f9;
+                padding: 8px;
+                border-radius: 5px;
+            }
+    
+            button {
+                margin-top: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    
+<body>
+
+    <div id="extra-fields" >
+        <input type="text" id="job" placeholder="Enter job position"><br>
+    
+        <!-- Country dropdown -->
+        <label for="country">Select Country:</label>
+        <select id="country">
+            <option value="">--Choose Country--</option>
+            <option value="us">United States</option>
+            <option value="ca">Canada</option>
+            <option value="gb">United Kingdom</option>
+            <option value="au">Australia</option>
+            <option value="in">India</option>
+            <option value="de">Germany</option>
+            <option value="fr">France</option>
+            <option value="jp">Japan</option>
+        </select><br>
+    
+        <!-- City input, hidden until country is selected -->
+        <div id="city-field" style="display:none;">
+            <input type="text" id="city" placeholder="Enter city"><br>
+        </div>
+    
+        <button id="submit-all">Submit</button>
+    </div>
+    
+
+
+    <!-- Output -->
+    <div id="result"></div>
+
+    <!-- JavaScript -->
+    <script>
+
+        // Show city input once country is selected
+        document.getElementById("country").addEventListener("change", function() {
+            const cityField = document.getElementById("city-field");
+            if (this.value) {
+                cityField.style.display = "block";
+            } else {
+                cityField.style.display = "none";
+            }
+        });
+    
+        document.getElementById("submit-all").addEventListener("click", function() {
+            const job = document.getElementById("job").value;
+            const country = document.getElementById("country").value;
+            const city = document.getElementById("city").value;
+
+            fetch("/result", {
+                method: "POST",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ job, country, city, refine: false }) // refine = true
+            })
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("result").innerHTML = data.message;
+            });
+        });
+
+        function compareJob(job_id, country) {
+            const detailsDiv = document.getElementById(`details-${job_id}`);
+            detailsDiv.innerHTML = "Loading details...";
+
+            fetch("/job-detail", {
+                method: "POST",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ job_id, country })
+            })
+            .then(res => res.json())
+            .then(data => {
+                detailsDiv.innerHTML = data.detail;
+            })
+            .catch(() => {
+                detailsDiv.innerHTML = "Failed to fetch job details.";
+            });
+        }
+        function toggleDetails(job_id, country) {
+            const detailsDiv = document.getElementById(`details-${job_id}`);
+            const button = document.getElementById(`btn-${job_id}`);
+
+            // If visible, hide it and update button
+            if (detailsDiv.style.display === "block") {
+                detailsDiv.style.display = "none";
+                button.innerText = "More Details";
+                return;
+            }
+
+            // If hidden, fetch and show details
+            if (!detailsDiv.innerHTML.trim()) {
+                detailsDiv.innerHTML = "Loading details...";
+
+                fetch("/job-detail", {
+                    method: "POST",
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ job_id, country })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    detailsDiv.innerHTML = data.detail;
+                    detailsDiv.style.display = "block";
+                    button.innerText = "Hide Details";
+                })
+                .catch(() => {
+                    detailsDiv.innerHTML = "Failed to fetch job details.";
+                });
+            } else {
+                detailsDiv.style.display = "block";
+                button.innerText = "Hide Details";
+            }
+        }
+        function compareWithResume(job_id) {
+            const compareDiv = document.getElementById(`compare-${job_id}`);
+            compareDiv.innerHTML = "Comparing your resume to this job...";
+
+            // Placeholder: You can later fetch('/compare', ...) to run actual AI logic
+            setTimeout(() => {
+                compareDiv.innerHTML = `<p><em>[Mocked AI Result]</em> Your resume matches this job by approximately 83%.</p>`;
+            }, 1000);
+        }
+    </script>
+    
+</body>
+</html>
