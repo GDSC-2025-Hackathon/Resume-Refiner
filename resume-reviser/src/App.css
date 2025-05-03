@@ -129,3 +129,32 @@ button {
 button:hover {
   background-color: #002855; /* Even darker on hover */
 }
+
+.file-info-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.75rem;
+  gap: 0.4rem;
+}
+
+.file-name {
+  font-size: 1rem;
+  color: #ccc;
+  font-style: italic;
+  margin: 0;
+}
+
+.clear-btn {
+  background-color: #ff4d4d;
+  border: none;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.clear-btn:hover {
+  background-color: #cc0000;
+}

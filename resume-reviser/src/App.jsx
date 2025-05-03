@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './App.css';
 import OutputDisplay from './Output';
 
@@ -8,13 +8,29 @@ function App() {
   const [description, setDescription] = useState('');
   const [resumeOutput, setResumeOutput] = useState('');
   const [jobSuggestions, setJobSuggestions] = useState([]);
+  const [selectedFile, setSelectedFile] = useState(null);
 
-  const handleUpload = () => {
-    console.log('Choose file clicked');
+  const fileInputRef = useRef(null);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setSelectedFile(file);
+      console.log('File selected:', file.name);
+    }
   };
 
   const handleFileSubmit = () => {
-    console.log('Upload file clicked');
+    if (fileInputRef.current) {
+      fileInputRef.current.click();
+    }
+  };
+
+  const handleClearFile = () => {
+    setSelectedFile(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+    }
   };
 
   const handleRevise = () => {
@@ -36,6 +52,20 @@ function App() {
 
         <div className="card">
           <button onClick={handleFileSubmit}>Upload Resume</button>
+          <input
+            type="file"
+            ref={fileInputRef}
+            style={{ display: 'none' }}
+            onChange={handleFileChange}
+            accept=".pdf,.doc,.docx"
+          />
+
+          {selectedFile && (
+            <div className="file-info-column">
+              <p className="file-name">📄 {selectedFile.name}</p>
+              <button className="clear-btn" onClick={handleClearFile}>✕</button>
+            </div>
+          )}
         </div>
 
         <div className="form-section">
