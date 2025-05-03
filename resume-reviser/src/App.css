@@ -20,12 +20,12 @@ body {
 
 /* Main content container */
 .main-container {
-  width: 100%;
-  max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  width: 100%;
 }
 
 /* Title */
@@ -33,9 +33,10 @@ body {
   font-size: 4rem;
   font-weight: bold;
   color: #00d1ff;
-  margin-bottom: 1rem;
-  position: relative;
-  width: 100%;
+  margin: 0 auto 2rem auto;
+  text-align: left;
+  display: block;
+  width: fit-content;
 }
 
 
@@ -57,7 +58,8 @@ input, textarea {
   font-size: 1.2rem;
   width: 100%;
   max-width: 600px;
-  margin-top: 0.5rem;
+  margin-top: 1 rem;
+ 
 }
 
 textarea {
@@ -101,9 +103,29 @@ button:hover {
   width: 100%;
 }
 
-.line {
-  width: 57.2cm;
-  margin-left: -20cm;
-  height: 1px;
-  background-color: grey;
+.title-line {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  margin: 0 auto 2rem;
+}
+
+
+
+
+button {
+  background-color: #004080; /* Dark blue */
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  margin: 1rem 0.5rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #002855; /* Even darker on hover */
 }

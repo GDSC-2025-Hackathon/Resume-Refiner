@@ -32,10 +32,10 @@ function App() {
     <div className="main-wrapper">
       <div className="main-container">
         <h1 className="app-title">Resume Reviser</h1>
-        <hr className="line" />
+        <hr className="title-line" />
+
         <div className="card">
-          <button onClick={handleUpload}>Choose file</button>
-          <button onClick={handleFileSubmit}>Upload file</button>
+          <button onClick={handleFileSubmit}>Upload Resume</button>
         </div>
 
         <div className="form-section">
