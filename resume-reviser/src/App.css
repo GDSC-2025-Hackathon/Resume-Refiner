@@ -1,51 +1,109 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Root page wrapper */
+#root,
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+/* Main content container */
+.main-container {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Title */
+.app-title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #00d1ff;
+  margin-bottom: 1rem;
+  position: relative;
+  width: 100%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+/* Section Headings */
+h2 {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  color: orange;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-div button {
-
-  margin: 1cm;
+/* Inputs and Textarea */
+input, textarea {
+  background-color: #1f1f1f;
+  color: white;
+  border: 2px solid #444;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 1.2rem;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 0.5rem;
 }
 
 textarea {
-
-  width: 25cm;
-  height: 5cm;
-  vertical-align: text-top;
   resize: none;
+  height: 160px;
+}
+
+/* Buttons */
+button {
+  background-color: #00bfff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  margin: 1rem 0.5rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #009ad8;
+}
+
+/* Upload button section */
+.card {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+/* Form section styling */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.line {
+  width: 57.2cm;
+  margin-left: -20cm;
+  height: 1px;
+  background-color: grey;
 }
