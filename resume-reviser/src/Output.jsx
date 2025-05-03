@@ -1,11 +1,24 @@
 import React from 'react';
 import './Output.css';
 
-const OutputDisplay = ({ content }) => {
+const OutputDisplay = ({ resumeContent, jobSuggestions }) => {
   return (
-    <div className="output-box">
-      <h2>Extracted Text</h2>
-      <p>{content || 'No content yet. Upload a file to see extracted text.'}</p>
+    <div className="output-container">
+      <div className="output-section">
+        <h2>📝 Reformatted Resume</h2>
+        <p>{resumeContent || 'No reformatted resume available yet.'}</p>
+      </div>
+
+      <div className="output-section">
+        <h2>💼 Job Suggestions</h2>
+        <ul>
+          {jobSuggestions && jobSuggestions.length > 0 ? (
+            jobSuggestions.map((job, index) => <li key={index}>{job}</li>)
+          ) : (
+            <li>No job suggestions yet.</li>
+          )}
+        </ul>
+      </div>
     </div>
   );
 };

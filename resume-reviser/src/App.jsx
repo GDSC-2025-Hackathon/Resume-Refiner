@@ -1,92 +1,85 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-// import OutputDisplay from './Output';
+import { useState } from 'react';
+import './App.css';
+import OutputDisplay from './Output';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [position, setPosition] = useState('');
+  const [location, setLocation] = useState('');
+  const [description, setDescription] = useState('');
 
-  const [text, setText] = useState('');
-  const [text2, setText2] = useState('');
-  const [text3, setText3] = useState('');
+  const [resumeOutput, setResumeOutput] = useState('');
+  const [jobSuggestions, setJobSuggestions] = useState([]);
 
-  const handleChange = (event) => {
-    setText(event.target.value);
+  const handleUpload = () => {
+    console.log('Choose file clicked');
   };
-  const handleChange2 = (event) => {
-    setText2(event.target.value);
+
+  const handleFileSubmit = () => {
+    console.log('Upload file clicked');
   };
-  const handleChange3 = (event) => {
-    setText3(event.target.value);
+
+  const handleRevise = () => {
+    // This simulates backend reformatted resume and job suggestions
+    const reformattedResume = `Job Title: ${position}\nLocation: ${location}\n\nJob Description:\n${description}`;
+
+    const mockJobs = [
+      'Frontend Developer at Shopify',
+      'Junior React Engineer at RBC',
+      'Web Developer Intern at TELUS Digital'
+    ];
+
+    setResumeOutput(reformattedResume);
+    setJobSuggestions(mockJobs);
   };
-  
-  const [outputText, setOutputText] = useState('');
-  const [jobdesc, setJobdesc] = useState('');
 
   return (
     <>
-      <div>
-        {/* 
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a> */}
-      </div>
       <h1>Resume Reviser</h1>
-      <div className="card">
-        <button onClick>
-          Choose file
-        </button>
 
-        <button onClick>
-          Upload file
-        </button>
-        
+      <div className="card">
+        <button onClick={handleUpload}>Choose file</button>
+        <button onClick={handleFileSubmit}>Upload file</button>
       </div>
 
-      <h2>Enter Job Posisition</h2>
-      <input id="position"
+      <h2>Enter Job Position</h2>
+      <input
         type="text"
         style={{ width: '300px', height: '40px', fontSize: '16px' }}
-        value={text}
-        onChange={handleChange}
-        placeholder="Type something..."
+        value={position}
+        onChange={(e) => setPosition(e.target.value)}
+        placeholder="e.g. Software Engineer"
       />
 
-    <h2>Enter Job Location</h2>
-    <input
-      type="text2"
-      style={{ width: '300px', height: '40px', fontSize: '16px' }}
-      value={text2}
-      onChange={handleChange2}
-      placeholder="Type something..."
-    />
+      <h2>Enter Job Location</h2>
+      <input
+        type="text"
+        style={{ width: '300px', height: '40px', fontSize: '16px' }}
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
+        placeholder="e.g. Toronto, ON"
+      />
 
       <h2>Enter Job Description</h2>
-      <div>
-      
       <textarea
-        type="text3"
         rows={6}
         cols={40}
-        value={text3}
-        onChange={handleChange3}
-        placeholder="Type multiple lines..."
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        placeholder="Paste the job description here..."
       />
 
-    </div>
-    <div>
-    <button onClick>
-          Revise Resume
-        </button>
-    </div>
+      <div>
+        <button onClick={handleRevise}>Revise Resume</button>
+      </div>
+
+      <div>
+        <OutputDisplay
+          resumeContent={resumeOutput}
+          jobSuggestions={jobSuggestions}
+        />
+      </div>
     </>
-  )
+  );
 }
 
-
-
-export default App
+export default App;
