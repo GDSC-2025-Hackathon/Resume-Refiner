@@ -1,0 +1,23 @@
+.output-box {
+    white-space: pre-wrap;
+    padding: 1.5rem;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    border-radius: 12px;
+    margin-top: 20px;
+    border: 1px solid #444;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .output-box h2 {
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    color: #ffffff;
+  }
+  
+  .output-box p {
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  
