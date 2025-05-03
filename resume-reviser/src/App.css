@@ -41,3 +41,10 @@ div button {
 
   margin: 1cm;
 }
+
+textarea {
+
+  width: 25cm;
+  height: 5cm;
+  vertical-align: text-top;
+}

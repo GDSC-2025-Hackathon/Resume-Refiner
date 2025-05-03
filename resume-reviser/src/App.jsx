@@ -38,12 +38,13 @@ function App() {
       <h2>Enter Job Description</h2>
       <div>
       
-      <input
-        type="text"
-        value={text}
-        onChange={handleChange}
-        placeholder="Type something..."
-      />
+      <textarea
+      rows={6}
+      cols={40}
+      value={text}
+      onChange={handleChange}
+      placeholder="Type multiple lines..."
+    />
       <p>You typed: {text}</p>
     </div>
     </>
