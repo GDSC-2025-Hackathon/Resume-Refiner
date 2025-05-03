@@ -46,7 +46,7 @@ def second(file_path, job_descr):
         # Combine resume text + job description into one prompt
         prompt = (
             "This is a resume. Based on the following job description, "
-            "Resend this resume which I sent but make changes to make it better and add the & symbol around the text which was changed. Do not provide any more details or give any reference to gemini. Reformate the resume into sections. \n\n"
+            "Resend this resume which I sent but make changes to make it better and add the & symbol around the text which was changed. Do not provide any more details or give any reference to gemini. \n\n"
             f"{job_descr}\n\n{resume_text}"
         )
 
@@ -61,6 +61,8 @@ def second(file_path, job_descr):
 
         print("Gemini Suggestions:")
         print(response.text)
+        with open('output.txt', 'w') as file:
+            file.write(response.text)
 
     except Exception as e:
         print(f"Error: {e}")
