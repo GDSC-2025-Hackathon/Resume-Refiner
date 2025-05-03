@@ -47,4 +47,5 @@ textarea {
   width: 25cm;
   height: 5cm;
   vertical-align: text-top;
+  resize: none;
 }

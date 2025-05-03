@@ -45,7 +45,12 @@ function App() {
       onChange={handleChange}
       placeholder="Type multiple lines..."
     />
-      <p>You typed: {text}</p>
+    
+    </div>
+    <div>
+    <button onClick>
+          Revise Resume
+        </button>
     </div>
     </>
   )
