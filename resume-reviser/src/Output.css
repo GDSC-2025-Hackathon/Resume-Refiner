@@ -1,0 +1,144 @@
+.output-box {
+    margin-top: 3rem;
+    background-color: #1f1f1f;
+    padding: 1.5rem 2rem;
+    border: 1px solid #444;
+    border-radius: 8px;
+    text-align: left;
+    color: #f0f0f0;
+  }
+  
+  .output-box h2 {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.5rem;
+  }
+  
+  .output-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+  .job-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+  
+  .job-card {
+    margin-bottom: 20px;
+    padding: 20px 24px;
+    border: 1px solid #444;
+    border-radius: 12px;
+    background-color: #1f1f1f;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+    width: 90%;
+    max-width: 700px;
+    text-align: left;
+  }
+  .job-details li {
+    margin: 6px 0;
+    color: #e0e0e0;
+    list-style-type: disc;
+  }
+    
+  
+  /* Job details + compare sections */
+  .job-compare,
+  .job-details {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background-color: #352d2d;
+    border-left: 4px solid #0077cc;
+    border-radius: 6px;
+    font-size: 0.95em;
+  }
+  .job-compare:empty {
+    display: none;
+  }
+  
+  .bullet-box {
+    background-color: #2b2b2b;
+    border-radius: 8px;
+    padding: 12px 16px;
+    border: 1px solid #444;
+    margin: 12px 0;
+    align-self: stretch;
+  }
+  
+  .bullet-box ul {
+    list-style-type: disc;
+    padding-left: 1.4rem;
+    margin: 0;
+    text-align: left; 
+  }
+  
+  .bullet-box li {
+    color: #e0e0e0;
+    margin: 6px 0;
+    text-align: left; 
+  }
+  
+  
+  .job-details li {
+    color: #e0e0e0;
+    margin: 6px 0;
+    padding: 0;
+    background: none;
+    border: none;
+  }
+  
+  
+  .job-details p {
+    margin: 6px 0;
+    padding: 0;
+    color: #e0e0e0;
+    background: none;
+  }
+  
+  button {
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0077cc;
+    color: white;
+    cursor: pointer;
+    font-size: 0.9em;
+  }
+  
+  button:hover {
+    background-color: #005fa3;
+  }
+  .download-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #0077cc;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .download-btn:hover {
+    background-color: #005fa3;
+  }
+  .refined-resume-card {
+    margin-top: 20px;
+    padding: 20px 24px;
+    border: 1px solid #444;
+    border-radius: 12px;
+    background-color: #1f1f1f;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+    width: 90%;
+    max-width: 700px;
+    text-align: left;
+    white-space: pre-wrap;
+    color: #f0f0f0;
+  }
+  
