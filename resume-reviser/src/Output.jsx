@@ -53,14 +53,22 @@ const OutputDisplay = ({ resumeContent, jobSuggestions, whichOne }) => {
         {resumeContent && resumeContent.length > 0 ? (
           <div className="refined-resume-card">
             {resumeContent}
+            <button onClick={() => {
+              const blob = new Blob([resumeContent], { type: 'text/plain' });
+              const link = document.createElement('a');
+              link.href = URL.createObjectURL(blob);
+              link.download = 'revised_resume.txt';
+              link.click();
+            }}>
+              Download as .txt
+            </button>
           </div>
+          
         ) : (
           <p>No reformatted resume yet.</p>
         )}
       </div>
     )}
-
-
 
     {whichOne == 2 && (
     <div className="output-section">
