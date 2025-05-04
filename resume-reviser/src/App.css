@@ -36,9 +36,12 @@ body {
   margin: 0 auto 2rem auto;
   text-align: left;
   display: block;
-  width: fit-content;
-}
 
+  word-wrap: break-word;      /* ensures long words break */
+  overflow-wrap: break-word;  /* modern equivalent */
+  white-space: normal;        /* allows wrapping */
+  max-width: 100%;
+}
 
 
 /* Section Headings */
@@ -61,6 +64,14 @@ input, textarea {
   margin-top: 1 rem;
  
 }
+/* Horizontal Line */
+.section-divider {
+  border: none;
+  border-top: 2px solid #444;
+  margin: 2rem 0;
+  width: 70%;
+}
+
 
 textarea {
   resize: none;
