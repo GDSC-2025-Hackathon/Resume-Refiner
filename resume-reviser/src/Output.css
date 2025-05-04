@@ -1,0 +1,23 @@
+.output-box {
+    margin-top: 3rem;
+    background-color: #1f1f1f;
+    padding: 1.5rem 2rem;
+    border: 1px solid #444;
+    border-radius: 8px;
+    text-align: left;
+    color: #f0f0f0;
+  }
+  
+  .output-box h2 {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.5rem;
+  }
+  
+  .output-box p {
+    font-size: 1rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+  }
+  
