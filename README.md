@@ -1,5 +1,6 @@
 # Project
 Resume Refiner – GDSC Hackathon Project
+
 Resume Refiner is a web app created during the GDSC Hackathon at the University of Guelph by Paul, Alex, Nikhil, and Nicholas. It helps users refine their resumes and discover job opportunities in a fast and intelligent way. The goal was to make job applications easier by using AI to handle resume tailoring and job matching all in one platform.
 
 What It Does:
