@@ -15,3 +15,7 @@ One of the biggest challenges was handling PDF uploads and converting them into 
 
 Impact
 Resume Refiner helps job seekers save time and improve their chances of landing interviews. Instead of manually editing resumes for each job, users can rely on the AI to do the heavy lifting. The addition of job recommendations also helps reduce the time spent searching for opportunities, making Resume Refiner a practical tool for anyone in the job market.
+
+
+Note
+There is currently an error with the main branch structure. All the files and folders for the working project are located inside the Resume-Refiner folder. Please navigate into that folder to view or run the full application.
