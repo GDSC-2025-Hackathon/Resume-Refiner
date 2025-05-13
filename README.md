@@ -19,4 +19,4 @@ Resume Refiner helps job seekers save time and improve their chances of landing 
 
 
 Note:
-There is currently an error with the main branch structure. All the files and folders for the working project are located inside the Resume-Refiner folder. Please navigate into that folder to view or run the full application.
+There is currently an error with the main branch structure. All the files and folders for the working project are located inside the resume-refiner folder. Please navigate into that folder to view or run the full application.
